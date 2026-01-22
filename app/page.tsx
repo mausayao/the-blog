@@ -21,6 +21,7 @@ export default async function Home() {
                         alt={"imagem"}
                         width={1200}
                         height={720}
+                        priority
                     />
                 </Link>
                 <div className="flex flex-col gap-4 sm:justify-center">
