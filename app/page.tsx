@@ -1,6 +1,7 @@
 import { Container } from "@/components/Container/Index";
 import { Header } from "@/components/Header";
 import { PostHeader } from "@/components/PostHeader";
+import { PostImageCover } from "@/components/PostImageCover";
 import { Posts } from "@/components/Posts";
 import { SpinLoader } from "@/components/SpinLoader";
 import Image from "next/image";
@@ -12,19 +13,16 @@ export default async function Home() {
         <Container>
             <Header />
             <section className="grid grid-cols-1 gap-8 mb-16 sm:grid-cols-2 group">
-                <Link
-                    className="w-full h-full overflow-hidden rounded-xl"
-                    href={""}
-                >
-                    <Image
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition"
-                        src={"/images/bryen_0.png"}
-                        alt={"imagem"}
-                        width={1200}
-                        height={720}
-                        priority
-                    />
-                </Link>
+                <PostImageCover
+                    linkProps={{ href: "#" }}
+                    imageProps={{
+                        src: "/images/bryen_0.png",
+                        alt: "imagem",
+                        width: 1200,
+                        height: 720,
+                        priority: true,
+                    }}
+                />
                 <div className="flex flex-col gap-4 sm:justify-center">
                     <time
                         className="text-slate-600 text-sm/tight"
