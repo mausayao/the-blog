@@ -1,5 +1,6 @@
 import { Container } from "@/components/Container/Index";
 import { Header } from "@/components/Header";
+import { PostHeader } from "@/components/PostHeader";
 import { Posts } from "@/components/Posts";
 import { SpinLoader } from "@/components/SpinLoader";
 import Image from "next/image";
@@ -31,10 +32,9 @@ export default async function Home() {
                     >
                         20/01/2026
                     </time>
-                    <h2 className="text-2xl/tight font-extrabold sm:text-4xl">
+                    <PostHeader url={"#"} as="h1">
                         Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit.
-                    </h2>
+                    </PostHeader>
                     <p>
                         Lorem ipsum dolor sit amet consectetur, adipisicing
                         elit. Repellat molestiae ratione quasi voluptates
