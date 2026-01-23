@@ -9,16 +9,13 @@ type PostHeaderProps = {
 
 export function PostHeader({ children, as: Tag = "h2", url }: PostHeaderProps) {
     const styleCompositionFor = {
-        h1: "text-2xl/tight sm:text-4xl",
-        h2: "text-2xl/tight sm:text-4xl",
+        h1: "text-2xl/tight font-extrabold sm:text-4xl",
+        h2: "text-2xl/tight font-bold",
     };
 
-    const commomStyle = "font-extrabold";
     return (
-        <Link href={url}>
-            <Tag className={clsx(styleCompositionFor[Tag], commomStyle)}>
-                {children}
-            </Tag>
+        <Link href={url} className="group-hover:text-slate-600 transition">
+            <Tag className={clsx(styleCompositionFor[Tag])}>{children}</Tag>
         </Link>
     );
 }
