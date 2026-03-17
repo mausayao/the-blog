@@ -2,7 +2,6 @@ import { PostDetail } from "@/components/PostDetail";
 import { SpinLoader } from "@/components/SpinLoader";
 import { findBySlug } from "@/lib/post/queries";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
 type PostPageProps = {

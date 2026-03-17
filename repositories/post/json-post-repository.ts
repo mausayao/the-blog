@@ -12,7 +12,7 @@ export class JsonPostRepository implements PostRepository {
         if (SIMULATE_WAIT_IN_MS <= 0) return;
 
         await new Promise((resolve) =>
-            setTimeout(resolve, SIMULATE_WAIT_IN_MS)
+            setTimeout(resolve, SIMULATE_WAIT_IN_MS),
         );
     }
 
@@ -22,6 +22,13 @@ export class JsonPostRepository implements PostRepository {
         const { posts } = parsedJson;
         return posts;
     }
+
+    async findAllPublic(): Promise<PostModel[]> {
+        const postsActive = await this.findAll();
+        const posts = postsActive.filter((post) => post.published === true);
+        return posts;
+    }
+
     async findAll(): Promise<PostModel[]> {
         await this.simulateWait();
         const posts = await this.readFromDisk();
@@ -30,7 +37,7 @@ export class JsonPostRepository implements PostRepository {
 
     async findById(id: string): Promise<PostModel> {
         await this.simulateWait();
-        const posts = await this.findAll();
+        const posts = await this.findAllPublic();
         const post = posts.find((post) => post.id === id);
 
         if (!post) throw new Error("Post não encontrado");
@@ -40,7 +47,7 @@ export class JsonPostRepository implements PostRepository {
 
     async findBy(slug: string): Promise<PostModel> {
         await this.simulateWait();
-        const posts = await this.findAll();
+        const posts = await this.findAllPublic();
         const post = posts.find((post) => post.slug === slug);
 
         if (!post) throw new Error("Post não encontrado");
@@ -48,5 +55,3 @@ export class JsonPostRepository implements PostRepository {
         return post;
     }
 }
-
-export const postRepository: PostRepository = new JsonPostRepository();
