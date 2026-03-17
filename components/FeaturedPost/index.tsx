@@ -1,4 +1,4 @@
-import { findAll } from "@/lib/post/queries";
+import { findAll } from "@/lib/post/queries/public";
 import { PostImageCover } from "../PostImageCover";
 import { PostSummary } from "../PostSummary";
 

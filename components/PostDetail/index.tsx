@@ -1,4 +1,4 @@
-import { findBySlug } from "@/lib/post/queries";
+import { findBySlug } from "@/lib/post/queries/public";
 import { notFound } from "next/navigation";
 import { PostHeader } from "../PostHeader";
 import Image from "next/image";

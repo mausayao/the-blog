@@ -1,6 +1,6 @@
 import { PostImageCover } from "../PostImageCover";
 import { PostSummary } from "../PostSummary";
-import { findAll } from "@/lib/post/queries";
+import { findAll } from "@/lib/post/queries/public";
 
 export async function Posts() {
     const posts = await findAll();

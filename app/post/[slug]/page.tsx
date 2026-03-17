@@ -1,6 +1,6 @@
 import { PostDetail } from "@/components/PostDetail";
 import { SpinLoader } from "@/components/SpinLoader";
-import { findBySlug } from "@/lib/post/queries";
+import { findBySlug } from "@/lib/post/queries/public";
 import { Metadata } from "next";
 import { Suspense } from "react";
 
